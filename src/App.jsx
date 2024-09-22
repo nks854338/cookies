@@ -11,9 +11,9 @@ const App = () => {
   const handleSetCookie = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/setCookie",
+        "https://cookies-backend-nu.vercel.app/setCookie",
         { username },
-        { withCredentials: true }
+        { withCredentials: true }  // Enable sending cookies
       );
       setCookieResponse(response.data.message);
     } catch (error) {
@@ -23,8 +23,8 @@ const App = () => {
 
   const handleGetCookie = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/getCookie", {
-        withCredentials: true,
+      const response = await axios.get("https://cookies-backend-nu.vercel.app/getCookie", {
+        withCredentials: true,  // Enable sending cookies
       });
       setCookieResponse(response.data.username || "No cookie found");
     } catch (error) {
@@ -35,14 +35,14 @@ const App = () => {
   const handleResponseCode = async (code) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/response/${code}`,
-        { withCredentials: true }
+        `https://cookies-backend-nu.vercel.app/response/${code}`,
+        { withCredentials: true }  // Enable sending cookies
       );
       setJsonResponse(response.data.message);
       setStatusCode(code);
 
       const statusResponse = await axios.get(
-        "http://localhost:3001/getCookie",
+        "https://cookies-backend-nu.vercel.app/getCookie",
         { withCredentials: true }
       );
       setStatusCookie(statusResponse.data.username || "No status cookie found");
@@ -56,6 +56,7 @@ const App = () => {
     <div>
       <h1>Cookie Handling and JSON Response</h1>
       <div className="mainContainer">
+        {/* Set Cookie Section */}
         <div className="container">
           <div className="formContainer">
             <div>
@@ -71,6 +72,7 @@ const App = () => {
               </div>
             </div>
           </div>
+          {/* Get Cookie Section */}
           <div className="formContainer">
             <div>
               <h2>Get Cookie</h2>
@@ -83,6 +85,8 @@ const App = () => {
             </div>
           </div>
         </div>
+
+        {/* Response Code Section */}
         <div>
           <h2 className="response">Response Code</h2>
           <div className="statusContainer">
