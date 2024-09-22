@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400&family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  text-decoration: none;
+}
+
+h1{
+  text-align: center;
+  font-size: 35px;
+  margin: 20px;
+}
+
+h2{
+  text-align: center;
+}
+
+
+.quetoState{
+  background-color: lightblue;
+  height: 38px;
+  width: 120px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 15px;
+}
+
+
+.formContainer{
+  display: flex;
+  margin: auto;
+  box-shadow: #15133c 0 0 2px;
+  width: 30vw;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.formContainer div{
+  width: 100%;
+}
+
+.mainContainer{
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn{
+  width: 100%;
+  display: flex;
+}
+
+.btn button{
+  box-shadow: #15133c 0 0 5px;
+  padding: 7px 30px;
+  border-radius: 10px; 
+  margin: auto;
+  margin-top: 20px;
+}
+
+.cookie{
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  min-width: 400px;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid #15133c;
+  outline: none;
+  margin-bottom: 3vmin;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.statusBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.status{
+  height: 60px;
+  width: 60px;
+  box-shadow: #15133c 0 0 5px;
+  color: #15133c;
+  font-weight: 800;
+  border-radius: 50%;
+}
+
+.status:focus{
+  transform: scale(1.1);
+  background-color: #15133c;
+  color: #fff;
+}
+
+.statusContainer{
+  display: flex;
+  gap: 50px;
+  height: 60vh;
+  width: 30vw;
+}
+
+.response{
+  margin-top:20px ;
+  font-size: 28px;
+}
