@@ -13,7 +13,7 @@ const App = () => {
       const response = await axios.post(
         "https://cookies-backend-nu.vercel.app/setCookie",
         { username },
-        { withCredentials: true }  // Enable sending cookies
+        { withCredentials: true } 
       );
       setCookieResponse(response.data.message);
     } catch (error) {
@@ -23,9 +23,10 @@ const App = () => {
 
   const handleGetCookie = async () => {
     try {
-      const response = await axios.get("https://cookies-backend-nu.vercel.app/getCookie", {
-        withCredentials: true,  // Enable sending cookies
-      });
+      const response = await axios.get(
+        "https://cookies-backend-nu.vercel.app/getCookie",
+        { withCredentials: true } 
+      );
       setCookieResponse(response.data.username || "No cookie found");
     } catch (error) {
       setCookieResponse(error.response.data.message);
@@ -36,7 +37,7 @@ const App = () => {
     try {
       const response = await axios.get(
         `https://cookies-backend-nu.vercel.app/response/${code}`,
-        { withCredentials: true }  // Enable sending cookies
+        { withCredentials: true }  
       );
       setJsonResponse(response.data.message);
       setStatusCode(code);
@@ -56,77 +57,44 @@ const App = () => {
     <div>
       <h1>Cookie Handling and JSON Response</h1>
       <div className="mainContainer">
-        {/* Set Cookie Section */}
         <div className="container">
           <div className="formContainer">
-            <div>
-              <h2>Set Cookie</h2>
-              <input
-                type="text"
-                placeholder="Enter username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <div className="btn">
-                <button onClick={handleSetCookie}>Set Cookie</button>
-              </div>
+            <h2>Set Cookie</h2>
+            <input
+              type="text"
+              placeholder="Enter username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <div className="btn">
+              <button onClick={handleSetCookie}>Set Cookie</button>
             </div>
           </div>
-          {/* Get Cookie Section */}
+
           <div className="formContainer">
-            <div>
-              <h2>Get Cookie</h2>
-              <div className="cookie">
-                <p>{cookieResponse}</p>
-              </div>
-              <div className="btn">
-                <button onClick={handleGetCookie}>Get Cookie</button>
-              </div>
+            <h2>Get Cookie</h2>
+            <div className="cookie">
+              <p>{cookieResponse}</p>
+            </div>
+            <div className="btn">
+              <button onClick={handleGetCookie}>Get Cookie</button>
             </div>
           </div>
         </div>
 
-        {/* Response Code Section */}
         <div>
           <h2 className="response">Response Code</h2>
           <div className="statusContainer">
-            <div className="statusBox">
-              <button
-                className="status"
-                onClick={() => handleResponseCode(200)}
-              >
-                200
-              </button>
-              <button
-                className="status"
-                onClick={() => handleResponseCode(201)}
-              >
-                201
-              </button>
-              <button
-                className="status"
-                onClick={() => handleResponseCode(400)}
-              >
-                400
-              </button>
-              <button
-                className="status"
-                onClick={() => handleResponseCode(404)}
-              >
-                404
-              </button>
-              <button
-                className="status"
-                onClick={() => handleResponseCode(500)}
-              >
-                500
-              </button>
-            </div>
-            <div className="statusBox">
-              <p>Status Code: {statusCode}</p>
-              <p>Response: {jsonResponse}</p>
-              <p>Status Cookie: {statusCookie}</p>
-            </div>
+            <button onClick={() => handleResponseCode(200)}>200</button>
+            <button onClick={() => handleResponseCode(201)}>201</button>
+            <button onClick={() => handleResponseCode(400)}>400</button>
+            <button onClick={() => handleResponseCode(404)}>404</button>
+            <button onClick={() => handleResponseCode(500)}>500</button>
+          </div>
+          <div className="statusBox">
+            <p>Status Code: {statusCode}</p>
+            <p>Response: {jsonResponse}</p>
+            <p>Status Cookie: {statusCookie}</p>
           </div>
         </div>
       </div>
