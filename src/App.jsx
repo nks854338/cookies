@@ -119,11 +119,12 @@ const App = () => {
                 500
               </button>
             </div>
-          </div>
+          
           <div className="statusBox">
             <p>Status Code: {statusCode}</p>
             <p>Response: {jsonResponse}</p>
             <p>Status Cookie: {statusCookie}</p>
+          </div>
           </div>
         </div>
       </div>
