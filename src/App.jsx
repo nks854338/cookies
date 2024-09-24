@@ -13,7 +13,7 @@ const App = () => {
       const response = await axios.post(
         "https://cookies-backend-nu.vercel.app/setCookie",
         { username },
-        { withCredentials: true } 
+        { withCredentials: true }
       );
       setCookieResponse(response.data.message);
     } catch (error) {
@@ -25,7 +25,7 @@ const App = () => {
     try {
       const response = await axios.get(
         "https://cookies-backend-nu.vercel.app/getCookie",
-        { withCredentials: true } 
+        { withCredentials: true }
       );
       setCookieResponse(response.data.username || "No cookie found");
     } catch (error) {
@@ -37,7 +37,7 @@ const App = () => {
     try {
       const response = await axios.get(
         `https://cookies-backend-nu.vercel.app/response/${code}`,
-        { withCredentials: true }  
+        { withCredentials: true }
       );
       setJsonResponse(response.data.message);
       setStatusCode(code);
@@ -59,15 +59,17 @@ const App = () => {
       <div className="mainContainer">
         <div className="container">
           <div className="formContainer">
-            <h2>Set Cookie</h2>
-            <input
-              type="text"
-              placeholder="Enter username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <div className="btn">
-              <button onClick={handleSetCookie}>Set Cookie</button>
+            <div>
+              <h2>Set Cookie</h2>
+              <input
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <div className="btn">
+                <button onClick={handleSetCookie}>Set Cookie</button>
+              </div>
             </div>
           </div>
 
@@ -85,11 +87,38 @@ const App = () => {
         <div>
           <h2 className="response">Response Code</h2>
           <div className="statusContainer">
-            <button onClick={() => handleResponseCode(200)}>200</button>
-            <button onClick={() => handleResponseCode(201)}>201</button>
-            <button onClick={() => handleResponseCode(400)}>400</button>
-            <button onClick={() => handleResponseCode(404)}>404</button>
-            <button onClick={() => handleResponseCode(500)}>500</button>
+            <div className="statusBox">
+              <button
+                className="status"
+                onClick={() => handleResponseCode(200)}
+              >
+                200
+              </button>
+              <button
+                className="status"
+                onClick={() => handleResponseCode(201)}
+              >
+                201
+              </button>
+              <button
+                className="status"
+                onClick={() => handleResponseCode(400)}
+              >
+                400
+              </button>
+              <button
+                className="status"
+                onClick={() => handleResponseCode(404)}
+              >
+                404
+              </button>
+              <button
+                className="status"
+                onClick={() => handleResponseCode(500)}
+              >
+                500
+              </button>
+            </div>
           </div>
           <div className="statusBox">
             <p>Status Code: {statusCode}</p>
